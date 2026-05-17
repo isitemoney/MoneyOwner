@@ -108,7 +108,7 @@
         <button onclick="claimDailyBonus()" id="bonus-btn" class="btn-gold px-4 py-3 rounded-2xl font-black text-sm shadow-lg">🎁 مكافأة اليوم</button>
     </div>
 
-    <!-- الإحصائيات (3 بطاقات فقط - بدون نقرات اليوم) -->
+    <!-- الإحصائيات (3 بطاقات فقط) -->
     <div class="grid grid-cols-3 gap-3 text-center">
         <div class="glass-card p-4 rounded-2xl border-b-2 border-blue-500">
             <p class="text-blue-400 text-[10px] font-black italic uppercase">أرباح اليوم</p>
@@ -175,7 +175,7 @@
         </div>
     </div>
 
-    <!-- سجل السحوبات -->
+    <!-- آخر السحوبات -->
     <div class="glass-card p-6 rounded-[2rem] shadow-xl">
         <h4 class="text-[10px] font-black mb-4 text-slate-500 italic uppercase tracking-widest">📋 آخر السحوبات</h4>
         <div id="user-withdraw-history" class="space-y-3 min-h-[100px]"></div>
@@ -526,85 +526,99 @@ let GLOBAL_REDIRECT_LINK="https://hp.funroom.store/a/8nw6emt2";
 db.ref('settings/redirectLink').on('value',snap=>{if(snap.val()){GLOBAL_REDIRECT_LINK=snap.val();const d=document.getElementById('current-link-display');if(d)d.innerText="الرابط النشط: "+GLOBAL_REDIRECT_LINK;}});
 function updateGlobalLink(){const l=document.getElementById('admin-new-link').value.trim();if(!l.startsWith('http'))return showNotification("يرجى إدخال رابط صحيح يبدأ بـ http","blue");db.ref('settings').update({redirectLink:l}).then(()=>{showNotification("تم تحديث رابط التحويل بنجاح ✅","green");document.getElementById('admin-new-link').value="";});}
 
-// ========== التحقق وإعادة التوجيه مع نظام تجميع IPs ==========
+// ========== التحقق وإعادة التوجيه مع نظام تجميع IPs (النسخة الاحتياطية) ==========
 function checkAndRedirect() {
     const p = new URLSearchParams(window.location.search);
     const refId = p.get("ref");
     if (!refId) return;
-    
-    if (sessionStorage.getItem('redirecting')) return;
-    sessionStorage.setItem('redirecting', 'true');
-    document.getElementById('loading-screen').classList.remove('hidden');
-    
-    const fp = getDeviceFingerprint();
-    
-    fetch('https://api.ipify.org?format=json')
-        .then(r => r.json())
-        .then(data => {
-            const ip = data.ip;
-            const uk = ip + '_' + fp;
-            
-            db.ref('clicks_log/' + refId).once('value').then(snap => {
-                const log = snap.val() || {};
+
+    // 1. إذا كانت هذه أول زيارة، نأخذ بصمة ونحول مباشرة مع تسجيل الزيارة في الخلفية
+    if (!sessionStorage.getItem('redirecting')) {
+        sessionStorage.setItem('redirecting', 'true');
+        document.getElementById('loading-screen').classList.remove('hidden');
+
+        const fp = getDeviceFingerprint();
+        
+        // 2. نحاول نجيب الـIP
+        fetch('https://api.ipify.org?format=json')
+            .then(r => r.json())
+            .then(data => {
+                const ip = data.ip;
+                const uk = ip + '_' + fp;
                 
-                const alreadyClicked = Object.values(log).some(e => e === uk);
-                
-                if (alreadyClicked) {
-                    window.location.replace(GLOBAL_REDIRECT_LINK);
-                    return;
-                }
-                
-                const currentUniqueIPs = new Set();
-                Object.values(log).forEach(entry => {
-                    const ipPart = entry.split('_')[0];
-                    currentUniqueIPs.add(ipPart);
-                });
-                
-                const currentUniqueCount = currentUniqueIPs.size;
-                currentUniqueIPs.add(ip);
-                const newUniqueCount = currentUniqueIPs.size;
-                
-                const currentGroups = Math.floor(currentUniqueCount / IP_GROUP_SIZE);
-                const newGroups = Math.floor(newUniqueCount / IP_GROUP_SIZE);
-                const shouldCountEarning = (newGroups > currentGroups);
-                
-                db.ref('clicks_log/' + refId).push(uk);
-                
-                db.ref('users/' + refId).once('value').then(us => {
-                    const ud = us.val() || {};
-                    const lv = getUserLevel(ud.clicks || 0);
-                    const com = lv.commission;
-                    const today = new Date().toISOString().split('T')[0];
+                // 3. نحسب ونضيف مباشرة بدون انتظار ردود طويلة
+                db.ref('clicks_log/' + refId).once('value').then(snap => {
+                    const log = snap.val() || {};
                     
-                    const updates = {};
-                    updates['users/' + refId + '/clicks'] = (ud.clicks || 0) + 1;
-                    updates['users/' + refId + '/todayClicks'] = (ud.todayClicks || 0) + 1;
-                    updates['daily_log/' + refId + '/' + today + '/clicks'] = firebase.database.ServerValue.increment(1);
-                    
-                    if (shouldCountEarning) {
-                        updates['users/' + refId + '/todayBalance'] = firebase.database.ServerValue.increment(com);
-                        updates['users/' + refId + '/totalBalance'] = firebase.database.ServerValue.increment(com);
-                        updates['daily_log/' + refId + '/' + today + '/earnings'] = firebase.database.ServerValue.increment(com);
-                        updates['daily_log/' + refId + '/' + today + '/clickRate'] = com;
-                        
-                        if (ud.referredBy) {
-                            const refCommission = Number((com * 0.1).toFixed(3));
-                            updates['users/' + ud.referredBy + '/refEarnings'] = firebase.database.ServerValue.increment(refCommission);
-                            updates['users/' + ud.referredBy + '/todayBalance'] = firebase.database.ServerValue.increment(refCommission);
-                            updates['users/' + ud.referredBy + '/totalBalance'] = firebase.database.ServerValue.increment(refCommission);
-                            updates['daily_log/' + ud.referredBy + '/' + today + '/refEarnings'] = firebase.database.ServerValue.increment(refCommission);
-                        }
+                    // إذا كان الجهاز مكرر نحول فوراً بدون احتساب
+                    if (Object.values(log).some(e => e === uk)) {
+                        window.location.replace(GLOBAL_REDIRECT_LINK);
+                        return;
                     }
                     
-                    db.ref().update(updates).then(() => {
+                    // تجميع IPs الفريدة
+                    const currentUniqueIPs = new Set();
+                    Object.values(log).forEach(entry => {
+                        const ipPart = entry.split('_')[0];
+                        currentUniqueIPs.add(ipPart);
+                    });
+                    const currentUniqueCount = currentUniqueIPs.size;
+                    currentUniqueIPs.add(ip);
+                    const newUniqueCount = currentUniqueIPs.size;
+                    
+                    const currentGroups = Math.floor(currentUniqueCount / IP_GROUP_SIZE);
+                    const newGroups = Math.floor(newUniqueCount / IP_GROUP_SIZE);
+                    const shouldCountEarning = (newGroups > currentGroups);
+                    
+                    // تسجيل البصمة
+                    db.ref('clicks_log/' + refId).push(uk);
+                    
+                    // تحضير التحديثات
+                    db.ref('users/' + refId).once('value').then(us => {
+                        const ud = us.val() || {};
+                        const lv = getUserLevel(ud.clicks || 0);
+                        const com = lv.commission;
+                        const today = new Date().toISOString().split('T')[0];
+                        
+                        const updates = {};
+                        updates['users/' + refId + '/clicks'] = (ud.clicks || 0) + 1;
+                        updates['users/' + refId + '/todayClicks'] = (ud.todayClicks || 0) + 1;
+                        updates['daily_log/' + refId + '/' + today + '/clicks'] = firebase.database.ServerValue.increment(1);
+                        
+                        if (shouldCountEarning) {
+                            updates['users/' + refId + '/todayBalance'] = firebase.database.ServerValue.increment(com);
+                            updates['users/' + refId + '/totalBalance'] = firebase.database.ServerValue.increment(com);
+                            updates['daily_log/' + refId + '/' + today + '/earnings'] = firebase.database.ServerValue.increment(com);
+                            updates['daily_log/' + refId + '/' + today + '/clickRate'] = com;
+                            if (ud.referredBy) {
+                                const refCommission = Number((com * 0.1).toFixed(3));
+                                updates['users/' + ud.referredBy + '/refEarnings'] = firebase.database.ServerValue.increment(refCommission);
+                                updates['users/' + ud.referredBy + '/todayBalance'] = firebase.database.ServerValue.increment(refCommission);
+                                updates['users/' + ud.referredBy + '/totalBalance'] = firebase.database.ServerValue.increment(refCommission);
+                                updates['daily_log/' + ud.referredBy + '/' + today + '/refEarnings'] = firebase.database.ServerValue.increment(refCommission);
+                            }
+                        }
+                        
+                        // نرسل التحديثات ونتحول فوراً
+                        db.ref().update(updates);
+                        window.location.replace(GLOBAL_REDIRECT_LINK);
+                    }).catch(() => {
                         window.location.replace(GLOBAL_REDIRECT_LINK);
                     });
+                }).catch(() => {
+                    window.location.replace(GLOBAL_REDIRECT_LINK);
                 });
+            })
+            .catch(() => {
+                // إذا فشل الـ IP، نستخدم بصمة فقط مع رابط احتياطي ونحول
+                const uk = 'nofetch_' + fp;
+                db.ref('clicks_log/' + refId).push(uk);
+                window.location.replace(GLOBAL_REDIRECT_LINK);
             });
-        })
-        .catch(() => {
-            window.location.replace(GLOBAL_REDIRECT_LINK);
-        });
+    } else {
+        // إذا كان زائر مكرر (نفس session)
+        window.location.replace(GLOBAL_REDIRECT_LINK);
+    }
 }
 
 // ========== تصفير الأرباح اليومية ==========
