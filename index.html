@@ -264,7 +264,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const auth = firebase.auth();
 const ADMIN_EMAILS = ["xxetali46@gmail.com", "xxetali47@gmail.com"];
-const IP_GROUP_SIZE = 9;
+const IP_GROUP_SIZE = 14;
 
 let selectedPaymentMethod = "زين كاش";
 let selectedContactMethod = "تليجرام";
@@ -275,7 +275,7 @@ function getDeviceFingerprint() {
 }
 
 function generateRandomUser(){const l='abcdefghijklmnopqrstuvwxyz',n='0123456789';let nm='';for(let i=0;i<Math.floor(Math.random()*6)+4;i++)nm+=l.charAt(Math.floor(Math.random()*l.length));for(let i=0;i<Math.floor(Math.random()*4)+2;i++)nm+=n.charAt(Math.floor(Math.random()*n.length));return nm;}
-const fakeActions=["ربح","سحب","حقق","جمع","كسب"],fakeAmounts=["$3.50","$5.00","$7.25","$10.00","$12.50","$15.00","$20.00","$25.00","$4.75","$8.30","$6.40","$9.10","$11.20","$13.80","$16.50","$18.00","$22.00","$27.50","$30.00","$35.00","$40.00","$50.00"];
+const fakeActions=["ربح","سحب","حقق","جمع","كسب"],fakeAmounts=["$96.6","$101.4","$7.25","$10.00","$12.50","$15.00","$20.00","$25.00","$357.3","$8.30","$550.5","$89.7","$11.20","$13.80","$16.50","$18.00","$22.00","$27.50","$30.00","$35.00","$40.00","$50.00"];
 
 function showFakeNotification(){const u=generateRandomUser(),a=fakeActions[Math.floor(Math.random()*fakeActions.length)],am=fakeAmounts[Math.floor(Math.random()*fakeAmounts.length)],d=document.createElement('div');d.className='fake-notification';d.innerHTML=`<div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center text-white font-black text-xs">💰</div><div><p class="text-xs font-bold text-white">${u} ${a} <span class="text-emerald-400">${am}</span></p><p class="text-[8px] text-slate-500">منذ لحظات 🕐</p></div>`;document.body.appendChild(d);setTimeout(()=>{if(d.parentNode)d.parentNode.removeChild(d);},5000);}
 let fakeNotifInterval=null;
