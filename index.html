@@ -53,7 +53,6 @@
             <button onclick="logout()" class="bg-red-500/20 text-red-400 px-4 py-2 rounded-xl text-xs font-black">خروج</button>
         </div>
     </div>
-    <!-- البانر المتحرك -->
     <div id="moving-banner" class="hidden w-full overflow-hidden mt-2 py-1.5 bg-gradient-to-r from-amber-500/10 via-blue-500/10 to-amber-500/10 rounded-xl border border-amber-500/20 cursor-pointer" onclick="handleBannerClick()">
         <p id="moving-banner-text" class="text-[11px] font-black text-amber-400 whitespace-nowrap animate-marquee"></p>
     </div>
@@ -72,22 +71,17 @@
         <div class="text-5xl mb-4">💰</div>
         <h2 class="text-3xl font-black mb-1 italic">DARING <span class="text-blue-500">MONEY</span></h2>
         <p class="text-[11px] text-slate-400 font-bold mb-6">اربح المال من خلال نشر الروابط وجلب الزوار</p>
-        
         <button onclick="signInWithGoogle()" class="btn-google w-full py-4 rounded-2xl text-sm shadow-lg mb-3">
             <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             متابعة باستخدام Google
         </button>
-        
         <div class="divider mb-3">أو</div>
-        
         <div class="space-y-3">
             <input type="email" id="email" placeholder="البريد الإلكتروني" class="w-full p-4 rounded-2xl outline-none text-left">
             <input type="password" id="password" placeholder="كلمة المرور" class="w-full p-4 rounded-2xl outline-none text-left">
             <button onclick="signInWithEmail()" class="btn-primary w-full py-4 rounded-2xl font-black text-lg">دخول</button>
         </div>
-        
         <p class="text-[9px] text-slate-600 mt-4">ليس لديك حساب؟ لا تقلق، سجّل دخولك باستخدام Google أعلاه</p>
-        
         <div class="grid grid-cols-3 gap-3 mt-6 pt-4 border-t border-white/5">
             <div><p class="text-emerald-400 font-black text-lg">$12.5K+</p><p class="text-[8px] text-slate-500">مدفوع للمستخدمين</p></div>
             <div><p class="text-blue-400 font-black text-lg">8.2K+</p><p class="text-[8px] text-slate-500">مستخدم نشط</p></div>
@@ -98,7 +92,6 @@
 
 <!-- ========== لوحة التحكم الرئيسية ========== -->
 <div id="dashboard-section" class="hidden max-w-5xl mx-auto p-4 space-y-6">
-    <!-- بطاقة المستوى -->
     <div class="glass-card p-4 rounded-2xl border border-amber-500/30 flex justify-between items-center">
         <div>
             <p class="text-[10px] text-slate-400 font-bold">🏆 مستواك</p>
@@ -108,7 +101,6 @@
         <button onclick="claimDailyBonus()" id="bonus-btn" class="btn-gold px-4 py-3 rounded-2xl font-black text-sm shadow-lg">🎁 مكافأة اليوم</button>
     </div>
 
-    <!-- الإحصائيات (3 بطاقات فقط) -->
     <div class="grid grid-cols-3 gap-3 text-center">
         <div class="glass-card p-4 rounded-2xl border-b-2 border-blue-500">
             <p class="text-blue-400 text-[10px] font-black italic uppercase">أرباح اليوم</p>
@@ -124,7 +116,6 @@
         </div>
     </div>
 
-    <!-- الفريق -->
     <div class="glass-card p-4 rounded-2xl border border-purple-500/30">
         <h4 class="font-bold text-xs text-purple-400 mb-3 italic uppercase">👥 فريقك</h4>
         <div class="grid grid-cols-2 gap-3 text-center text-[10px]">
@@ -133,7 +124,6 @@
         </div>
     </div>
 
-    <!-- الرابط التسويقي -->
     <div class="glass-card p-6 rounded-[2rem] border-r-4 border-blue-500 shadow-xl">
         <h4 class="font-bold text-xs text-blue-400 mb-4 italic uppercase tracking-widest">🚀 رابطك التسويقي (للنقرات)</h4>
         <p class="text-[9px] text-slate-500 font-bold mb-2">انشر هذا الرابط لتحصل على أرباح مقابل كل 4 زوار من أجهزة مختلفة</p>
@@ -144,7 +134,6 @@
         <p class="text-[8px] text-slate-600 mt-2">كل 4 زوار من IPs مختلفة = ربح لك 💰</p>
     </div>
 
-    <!-- رابط الإحالة -->
     <div class="glass-card p-6 rounded-[2rem] border-r-4 border-purple-500 shadow-xl">
         <h4 class="font-bold text-xs text-purple-400 mb-4 italic uppercase tracking-widest">👥 رابط الإحالة (لدعوة المسوّقين)</h4>
         <p class="text-[9px] text-slate-500 font-bold mb-2">انشر هذا الرابط لدعوة أصدقائك للتسجيل والربح من أرباحهم (10%)</p>
@@ -155,16 +144,12 @@
         <p class="text-[8px] text-slate-600 mt-2">المسجلون عن طريقك يظهرون في فريقك 👥 وتربح 10% من أرباحهم</p>
     </div>
 
-    <!-- زر طلب السحب -->
     <div class="glass-card p-6 rounded-[2rem] border-r-4 border-emerald-500 shadow-xl text-center">
         <h4 class="font-bold text-sm text-emerald-400 mb-4 italic uppercase">💰 طلب سحب الأرباح</h4>
         <p class="text-[10px] text-slate-400 mb-4">الحد الأدنى للسحب: 7$</p>
-        <button onclick="goToWithdrawPage()" class="btn-primary w-full py-4 rounded-2xl font-black text-lg shadow-lg">
-            💵 تقديم طلب سحب
-        </button>
+        <button onclick="goToWithdrawPage()" class="btn-primary w-full py-4 rounded-2xl font-black text-lg shadow-lg">💵 تقديم طلب سحب</button>
     </div>
 
-    <!-- سجل الأيام -->
     <div class="glass-card p-6 rounded-[2rem] shadow-xl border border-cyan-500/30">
         <h4 class="text-[10px] font-black mb-4 text-cyan-400 italic uppercase tracking-widest">📅 سجل الأيام المفصل</h4>
         <div class="overflow-x-auto">
@@ -175,7 +160,6 @@
         </div>
     </div>
 
-    <!-- آخر السحوبات -->
     <div class="glass-card p-6 rounded-[2rem] shadow-xl">
         <h4 class="text-[10px] font-black mb-4 text-slate-500 italic uppercase tracking-widest">📋 آخر السحوبات</h4>
         <div id="user-withdraw-history" class="space-y-3 min-h-[100px]"></div>
@@ -184,93 +168,38 @@
 
 <!-- ========== صفحة طلب السحب المنفصلة ========== -->
 <div id="withdraw-page" class="hidden max-w-2xl mx-auto p-4 space-y-6">
-    <!-- زر الرجوع -->
     <div class="flex items-center gap-3 mb-2">
-        <button onclick="goToDashboard()" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-black hover:bg-slate-700 transition">
-            ⬅️ العودة للوحة التحكم
-        </button>
+        <button onclick="goToDashboard()" class="bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-black hover:bg-slate-700 transition">⬅️ العودة للوحة التحكم</button>
         <h2 class="text-lg font-black text-emerald-400 italic">💰 صفحة السحب</h2>
     </div>
-
-    <!-- تنبيه الرصيد -->
     <div class="glass-card p-6 rounded-[2rem] border border-emerald-500/30 text-center">
         <p class="text-[10px] text-slate-400 font-bold uppercase mb-2">رصيدك القابل للسحب</p>
         <h2 id="withdraw-balance" class="text-4xl font-black text-emerald-400">$0.00</h2>
         <p class="text-[9px] text-slate-500 mt-2">الحد الأدنى للسحب: 7$</p>
     </div>
-
-    <!-- اختيار طريقة الدفع -->
     <div class="glass-card p-6 rounded-[2rem] border border-blue-500/30">
         <h4 class="font-bold text-sm text-blue-400 mb-4 italic uppercase">💳 اختر طريقة الدفع</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div class="withdraw-card glass-card p-4 rounded-2xl border-2 border-white/10 text-center selected" onclick="selectPaymentMethod('زين كاش', this)" id="card-zain">
-                <p class="text-2xl mb-2">📱</p>
-                <p class="font-black text-sm text-amber-400">زين كاش</p>
-                <p class="text-[8px] text-slate-500 mt-1">تحويل فوري</p>
-            </div>
-            <div class="withdraw-card glass-card p-4 rounded-2xl border-2 border-white/10 text-center" onclick="selectPaymentMethod('رصيد آسيا', this)" id="card-asia">
-                <p class="text-2xl mb-2">🌏</p>
-                <p class="font-black text-sm text-purple-400">رصيد آسيا</p>
-                <p class="text-[8px] text-slate-500 mt-1">تحويل فوري</p>
-            </div>
-            <div class="withdraw-card glass-card p-4 rounded-2xl border-2 border-white/10 text-center" onclick="selectPaymentMethod('USDT', this)" id="card-usdt">
-                <p class="text-2xl mb-2">💎</p>
-                <p class="font-black text-sm text-cyan-400">USDT</p>
-                <p class="text-[8px] text-slate-500 mt-1">TRC20</p>
-            </div>
+            <div class="withdraw-card glass-card p-4 rounded-2xl border-2 border-white/10 text-center selected" onclick="selectPaymentMethod('زين كاش', this)" id="card-zain"><p class="text-2xl mb-2">📱</p><p class="font-black text-sm text-amber-400">زين كاش</p><p class="text-[8px] text-slate-500 mt-1">تحويل فوري</p></div>
+            <div class="withdraw-card glass-card p-4 rounded-2xl border-2 border-white/10 text-center" onclick="selectPaymentMethod('رصيد آسيا', this)" id="card-asia"><p class="text-2xl mb-2">🌏</p><p class="font-black text-sm text-purple-400">رصيد آسيا</p><p class="text-[8px] text-slate-500 mt-1">تحويل فوري</p></div>
+            <div class="withdraw-card glass-card p-4 rounded-2xl border-2 border-white/10 text-center" onclick="selectPaymentMethod('USDT', this)" id="card-usdt"><p class="text-2xl mb-2">💎</p><p class="font-black text-sm text-cyan-400">USDT</p><p class="text-[8px] text-slate-500 mt-1">TRC20</p></div>
         </div>
     </div>
-
-    <!-- نموذج السحب -->
     <div class="glass-card p-6 rounded-[2rem] border-r-4 border-emerald-500 shadow-xl">
         <h4 class="font-bold text-sm text-emerald-400 mb-6 italic uppercase">📝 معلومات السحب</h4>
-        
         <input type="hidden" id="selected-method" value="زين كاش">
-        
         <div class="space-y-4">
-            <div>
-                <label class="text-[10px] text-slate-400 font-bold block mb-1">رقم الحساب أو المحفظة</label>
-                <input type="text" id="w-account" placeholder="مثال: 0770xxxxxxx أو عنوان المحفظة" class="w-full p-4 rounded-2xl text-sm text-right font-bold outline-none">
-            </div>
-            
-            <div>
-                <label class="text-[10px] text-slate-400 font-bold block mb-1">المبلغ المراد سحبه (بالدولار)</label>
-                <input type="number" id="w-amount" placeholder="الحد الأدنى 7$" class="w-full p-4 rounded-2xl text-sm text-right font-bold outline-none">
-            </div>
-            
-            <div>
-                <label class="text-[10px] text-slate-400 font-bold block mb-1">اختر طريقة التواصل</label>
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="withdraw-card glass-card p-3 rounded-2xl border-2 border-white/10 text-center selected" onclick="selectContactMethod('تليجرام', this)" id="contact-telegram">
-                        <p class="text-lg">✈️</p>
-                        <p class="font-black text-[10px] text-blue-400">تليجرام</p>
-                    </div>
-                    <div class="withdraw-card glass-card p-3 rounded-2xl border-2 border-white/10 text-center" onclick="selectContactMethod('واتساب', this)" id="contact-whatsapp">
-                        <p class="text-lg">💬</p>
-                        <p class="font-black text-[10px] text-green-400">واتساب</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div>
-                <label class="text-[10px] text-slate-400 font-bold block mb-1">يوزر التواصل أو رقم الهاتف</label>
-                <input type="text" id="w-contact" placeholder="مثال: @username أو رقم الهاتف" class="w-full p-4 rounded-2xl text-sm text-right font-bold outline-none">
-            </div>
+            <div><label class="text-[10px] text-slate-400 font-bold block mb-1">رقم الحساب أو المحفظة</label><input type="text" id="w-account" placeholder="مثال: 0770xxxxxxx أو عنوان المحفظة" class="w-full p-4 rounded-2xl text-sm text-right font-bold outline-none"></div>
+            <div><label class="text-[10px] text-slate-400 font-bold block mb-1">المبلغ المراد سحبه (بالدولار)</label><input type="number" id="w-amount" placeholder="الحد الأدنى 7$" class="w-full p-4 rounded-2xl text-sm text-right font-bold outline-none"></div>
+            <div><label class="text-[10px] text-slate-400 font-bold block mb-1">اختر طريقة التواصل</label><div class="grid grid-cols-2 gap-3"><div class="withdraw-card glass-card p-3 rounded-2xl border-2 border-white/10 text-center selected" onclick="selectContactMethod('تليجرام', this)" id="contact-telegram"><p class="text-lg">✈️</p><p class="font-black text-[10px] text-blue-400">تليجرام</p></div><div class="withdraw-card glass-card p-3 rounded-2xl border-2 border-white/10 text-center" onclick="selectContactMethod('واتساب', this)" id="contact-whatsapp"><p class="text-lg">💬</p><p class="font-black text-[10px] text-green-400">واتساب</p></div></div></div>
+            <div><label class="text-[10px] text-slate-400 font-bold block mb-1">يوزر التواصل أو رقم الهاتف</label><input type="text" id="w-contact" placeholder="مثال: @username أو رقم الهاتف" class="w-full p-4 rounded-2xl text-sm text-right font-bold outline-none"></div>
         </div>
-        
-        <button onclick="confirmWithdraw()" class="btn-primary w-full py-4 mt-6 rounded-2xl font-black text-white shadow-lg text-lg">
-            ✅ تأكيد طلب السحب
-        </button>
-        
+        <button onclick="confirmWithdraw()" class="btn-primary w-full py-4 mt-6 rounded-2xl font-black text-white shadow-lg text-lg">✅ تأكيد طلب السحب</button>
         <p class="text-[9px] text-slate-600 mt-3 text-center">بعد تقديم الطلب، سيتم مراجعته من قبل الإدارة</p>
     </div>
-
-    <!-- جدول السحوبات -->
     <div class="glass-card p-6 rounded-[2rem] shadow-xl">
         <h4 class="text-[10px] font-black mb-4 text-slate-500 italic uppercase tracking-widest">📋 سجل طلبات السحب</h4>
-        <div id="withdraw-history-table" class="min-h-[100px]">
-            <p class="text-[10px] text-slate-500 text-center">لا يوجد طلبات سحب بعد</p>
-        </div>
+        <div id="withdraw-history-table" class="min-h-[100px]"><p class="text-[10px] text-slate-500 text-center">لا يوجد طلبات سحب بعد</p></div>
     </div>
 </div>
 
@@ -285,7 +214,6 @@
             <button onclick="toggleBanner()" class="bg-red-500/20 text-red-400 px-4 py-2 rounded-xl text-[10px] font-black">إخفاء / إظهار البانر</button>
         </div>
     </div>
-
     <div class="glass-card p-6 rounded-[2rem] border border-blue-500/30">
         <h2 class="text-xl font-black text-blue-400 mb-4 italic uppercase">إدارة الروابط والتحويل</h2>
         <div class="flex flex-col gap-4">
@@ -294,7 +222,6 @@
             <p id="current-link-display" class="text-[10px] text-emerald-400 font-mono"></p>
         </div>
     </div>
-
     <div class="glass-card p-6 rounded-[2rem] border border-purple-500/30">
         <h2 class="text-xl font-black text-purple-400 mb-4 italic uppercase">📊 إحصائيات متقدمة</h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 text-center text-[10px]">
@@ -304,7 +231,6 @@
             <div><p class="text-slate-400 font-bold">طلبات معلقة</p><h3 id="admin-pending-count" class="text-lg font-black text-red-400">0</h3></div>
         </div>
     </div>
-
     <div class="glass-card p-6 rounded-[2rem] border border-red-500/30">
         <h2 class="text-xl font-black text-red-500 mb-6 italic uppercase underline tracking-tighter">طلبات السحب المعلقة</h2>
         <div id="admin-withdrawals" class="space-y-4"></div>
@@ -323,14 +249,15 @@
 </div>
 
 <script>
+// ========== تهيئة Firebase ==========
 const firebaseConfig = {
-    apiKey: "AIzaSyCnkJf-6sAeRJpm34yXLmklLwSxM-GJvUc",
-    authDomain: "my-dash-c78e3.firebaseapp.com",
-    databaseURL: "https://my-dash-c78e3-default-rtdb.firebaseio.com",
-    projectId: "my-dash-c78e3",
-    storageBucket: "my-dash-c78e3.firebasestorage.app",
-    messagingSenderId: "137154835768",
-    appId: "1:137154835768:web:7f396782de1300f9bdfdcd"
+  apiKey: "AIzaSyBvRamFRmvDEJ114j295jXKHaNvgsRvKXg",
+  authDomain: "my-dashboard-f4bf2.firebaseapp.com",
+  projectId: "my-dashboard-f4bf2",
+  storageBucket: "my-dashboard-f4bf2.firebasestorage.app",
+  messagingSenderId: "90361656048",
+  appId: "1:90361656048:web:7e0fa72c6ac4e5ddad0835",
+  measurementId: "G-VZ4GBS20C4"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -342,13 +269,11 @@ const IP_GROUP_SIZE = 4;
 let selectedPaymentMethod = "زين كاش";
 let selectedContactMethod = "تليجرام";
 
-// ========== بصمة الجهاز ==========
 function getDeviceFingerprint() {
     const data = [navigator.userAgent, navigator.language, screen.width+'x'+screen.height, screen.colorDepth, new Date().getTimezoneOffset(), !!navigator.cookieEnabled, navigator.hardwareConcurrency||'unknown', navigator.deviceMemory||'unknown', navigator.platform||'unknown'].join('|');
     let hash=0; for(let i=0;i<data.length;i++){const c=data.charCodeAt(i);hash=((hash<<5)-hash)+c;hash=hash&hash;} return 'fp_'+Math.abs(hash).toString(36);
 }
 
-// ========== إشعارات وهمية ==========
 function generateRandomUser(){const l='abcdefghijklmnopqrstuvwxyz',n='0123456789';let nm='';for(let i=0;i<Math.floor(Math.random()*6)+4;i++)nm+=l.charAt(Math.floor(Math.random()*l.length));for(let i=0;i<Math.floor(Math.random()*4)+2;i++)nm+=n.charAt(Math.floor(Math.random()*n.length));return nm;}
 const fakeActions=["ربح","سحب","حقق","جمع","كسب"],fakeAmounts=["$3.50","$5.00","$7.25","$10.00","$12.50","$15.00","$20.00","$25.00","$4.75","$8.30","$6.40","$9.10","$11.20","$13.80","$16.50","$18.00","$22.00","$27.50","$30.00","$35.00","$40.00","$50.00"];
 
@@ -357,168 +282,28 @@ let fakeNotifInterval=null;
 function startFakeNotifications(){if(fakeNotifInterval)return;setTimeout(showFakeNotification,3000);fakeNotifInterval=setInterval(()=>{setTimeout(showFakeNotification,Math.random()*5000);},12000);}
 function stopFakeNotifications(){if(fakeNotifInterval){clearInterval(fakeNotifInterval);fakeNotifInterval=null;}}
 
-// ========== اختيار طريقة الدفع ==========
-function selectPaymentMethod(method, element) {
-    selectedPaymentMethod = method;
-    document.getElementById('selected-method').value = method;
-    document.querySelectorAll('.withdraw-card').forEach(card => {
-        if (card.id.startsWith('card-')) card.classList.remove('selected');
-    });
-    element.classList.add('selected');
-}
+function selectPaymentMethod(method, element){selectedPaymentMethod=method;document.getElementById('selected-method').value=method;document.querySelectorAll('.withdraw-card').forEach(card=>{if(card.id.startsWith('card-'))card.classList.remove('selected');});element.classList.add('selected');}
+function selectContactMethod(method, element){selectedContactMethod=method;document.querySelectorAll('#contact-telegram, #contact-whatsapp').forEach(card=>{card.classList.remove('selected');});element.classList.add('selected');}
 
-// ========== اختيار طريقة التواصل ==========
-function selectContactMethod(method, element) {
-    selectedContactMethod = method;
-    document.querySelectorAll('#contact-telegram, #contact-whatsapp').forEach(card => {
-        card.classList.remove('selected');
-    });
-    element.classList.add('selected');
-}
+function goToWithdrawPage(){document.getElementById('dashboard-section').classList.add('hidden');document.getElementById('withdraw-page').classList.remove('hidden');document.getElementById('admin-panel').classList.add('hidden');updateWithdrawPage();loadWithdrawHistory();}
+function goToDashboard(){document.getElementById('withdraw-page').classList.add('hidden');document.getElementById('dashboard-section').classList.remove('hidden');}
 
-// ========== التنقل بين الصفحات ==========
-function goToWithdrawPage() {
-    document.getElementById('dashboard-section').classList.add('hidden');
-    document.getElementById('withdraw-page').classList.remove('hidden');
-    document.getElementById('admin-panel').classList.add('hidden');
-    updateWithdrawPage();
-    loadWithdrawHistory();
-}
+function updateWithdrawPage(){const u=auth.currentUser;if(!u)return;db.ref('users/'+u.uid).once('value',snap=>{const d=snap.val();if(d){document.getElementById('withdraw-balance').innerText='$'+(d.withdrawableBalance||0).toFixed(2);}});}
 
-function goToDashboard() {
-    document.getElementById('withdraw-page').classList.add('hidden');
-    document.getElementById('dashboard-section').classList.remove('hidden');
-}
+function loadWithdrawHistory(){const u=auth.currentUser;if(!u)return;db.ref('withdrawals').once('value',snap=>{const data=snap.val();const container=document.getElementById('withdraw-history-table');if(!data){container.innerHTML='<p class="text-[10px] text-slate-500 text-center">لا يوجد طلبات سحب بعد</p>';return;}const withdrawals=Object.keys(data).reverse().map(k=>({id:k,...data[k]})).filter(w=>w.uid===u.uid);if(withdrawals.length===0){container.innerHTML='<p class="text-[10px] text-slate-500 text-center">لا يوجد طلبات سحب بعد</p>';return;}let html='<div class="overflow-x-auto"><table class="w-full text-[10px] text-right border-collapse"><thead><tr class="text-slate-400 border-b border-white/10"><th class="p-2">التاريخ</th><th class="p-2">المبلغ</th><th class="p-2">الطريقة</th><th class="p-2">التواصل</th><th class="p-2">الحالة</th></tr></thead><tbody>';withdrawals.forEach(w=>{const date=new Date(w.timestamp).toLocaleDateString('ar-IQ');const sc=w.status==='paid'?'text-emerald-400':'text-amber-400';const st=w.status==='paid'?'✅ تم الدفع':'⏳ قيد المراجعة';html+=`<tr class="border-b border-white/5 hover:bg-white/5"><td class="p-2 font-bold text-white">${date}</td><td class="p-2 text-emerald-400 font-black">$${w.amount}</td><td class="p-2 text-blue-400 font-bold">${w.method}</td><td class="p-2 text-purple-400 font-bold">${w.contact||'-'}</td><td class="p-2 font-black ${sc}">${st}</td></tr>`;});html+='</tbody></table></div>';container.innerHTML=html;});}
 
-function updateWithdrawPage() {
-    const u = auth.currentUser;
-    if (!u) return;
-    db.ref('users/' + u.uid).once('value', snap => {
-        const d = snap.val();
-        if (d) {
-            document.getElementById('withdraw-balance').innerText = '$' + (d.withdrawableBalance || 0).toFixed(2);
-        }
-    });
-}
+function signInWithGoogle(){const provider=new firebase.auth.GoogleAuthProvider();auth.signInWithPopup(provider).then(result=>{const user=result.user;db.ref('users/'+user.uid).once('value').then(snap=>{if(!snap.val()){const params=new URLSearchParams(window.location.search);const ref=params.get("r")||"";db.ref('users/'+user.uid).set({username:user.displayName||user.email.split('@')[0],email:user.email,clicks:0,todayClicks:0,todayBalance:0,totalBalance:0,withdrawableBalance:0,lastResetDay:"",referralCount:0,refEarnings:0,referredBy:ref||null,lastBonusDay:"",isGoogle:true});if(ref){db.ref('users/'+ref).transaction(d=>{if(d){d.referralCount=(d.referralCount||0)+1;}return d;});db.ref('referrals/'+ref).push(user.uid);}}});}).catch(err=>showNotification(err.message,"blue"));}
+function signInWithEmail(){const e=document.getElementById('email').value;const p=document.getElementById('password').value;if(!e||!p)return showNotification("يرجى إدخال البريد وكلمة المرور","blue");auth.signInWithEmailAndPassword(e,p).catch(err=>showNotification(err.message,"blue"));}
 
-// ========== تحميل سجل السحوبات في صفحة السحب ==========
-function loadWithdrawHistory() {
-    const u = auth.currentUser;
-    if (!u) return;
-    db.ref('withdrawals').once('value', snap => {
-        const data = snap.val();
-        const container = document.getElementById('withdraw-history-table');
-        if (!data) {
-            container.innerHTML = '<p class="text-[10px] text-slate-500 text-center">لا يوجد طلبات سحب بعد</p>';
-            return;
-        }
-        const withdrawals = Object.keys(data).reverse().map(k => ({id: k, ...data[k]})).filter(w => w.uid === u.uid);
-        if (withdrawals.length === 0) {
-            container.innerHTML = '<p class="text-[10px] text-slate-500 text-center">لا يوجد طلبات سحب بعد</p>';
-            return;
-        }
-        
-        let html = `
-        <div class="overflow-x-auto">
-            <table class="w-full text-[10px] text-right border-collapse">
-                <thead>
-                    <tr class="text-slate-400 border-b border-white/10">
-                        <th class="p-2">التاريخ</th>
-                        <th class="p-2">المبلغ</th>
-                        <th class="p-2">الطريقة</th>
-                        <th class="p-2">التواصل</th>
-                        <th class="p-2">الحالة</th>
-                    </tr>
-                </thead>
-                <tbody>`;
-        
-        withdrawals.forEach(w => {
-            const date = new Date(w.timestamp).toLocaleDateString('ar-IQ');
-            const statusClass = w.status === 'paid' ? 'text-emerald-400' : 'text-amber-400';
-            const statusText = w.status === 'paid' ? '✅ تم الدفع' : '⏳ قيد المراجعة';
-            html += `
-                    <tr class="border-b border-white/5 hover:bg-white/5">
-                        <td class="p-2 font-bold text-white">${date}</td>
-                        <td class="p-2 text-emerald-400 font-black">$${w.amount}</td>
-                        <td class="p-2 text-blue-400 font-bold">${w.method}</td>
-                        <td class="p-2 text-purple-400 font-bold">${w.contact || '-'}</td>
-                        <td class="p-2 font-black ${statusClass}">${statusText}</td>
-                    </tr>`;
-        });
-        
-        html += '</tbody></table></div>';
-        container.innerHTML = html;
-    });
-}
-
-// ========== تسجيل Google ==========
-function signInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then(result => {
-        const user = result.user;
-        db.ref('users/' + user.uid).once('value').then(snap => {
-            if (!snap.val()) {
-                const params = new URLSearchParams(window.location.search);
-                const ref = params.get("r") || "";
-                db.ref('users/' + user.uid).set({
-                    username: user.displayName || user.email.split('@')[0],
-                    email: user.email,
-                    clicks: 0,
-                    todayClicks: 0,
-                    todayBalance: 0,
-                    totalBalance: 0,
-                    withdrawableBalance: 0,
-                    lastResetDay: "",
-                    referralCount: 0,
-                    refEarnings: 0,
-                    referredBy: ref || null,
-                    lastBonusDay: "",
-                    isGoogle: true
-                });
-                if (ref) {
-                    db.ref('users/' + ref).transaction(d => { if(d){d.referralCount=(d.referralCount||0)+1;} return d; });
-                    db.ref('referrals/' + ref).push(user.uid);
-                }
-            }
-        });
-    }).catch(err => showNotification(err.message, "blue"));
-}
-
-// ========== دخول بالبريد ==========
-function signInWithEmail() {
-    const e = document.getElementById('email').value;
-    const p = document.getElementById('password').value;
-    if (!e || !p) return showNotification("يرجى إدخال البريد وكلمة المرور", "blue");
-    auth.signInWithEmailAndPassword(e, p).catch(err => showNotification(err.message, "blue"));
-}
-
-// ========== البانر المتحرك ==========
 let bannerLink="";
-function loadBanner(){
-    db.ref('settings/banner').on('value',snap=>{
-        const d=snap.val();
-        const movingBanner = document.getElementById('moving-banner');
-        const movingText = document.getElementById('moving-banner-text');
-        if(d && d.text && d.visible !== false){
-            movingBanner.classList.remove('hidden');
-            movingText.innerText = '📢 ' + d.text + ' 📢';
-            bannerLink = d.link || "";
-        } else {
-            movingBanner.classList.add('hidden');
-        }
-    });
-}
-function handleBannerClick(){
-    if(bannerLink && bannerLink.startsWith('http')) window.open(bannerLink, '_blank');
-}
+function loadBanner(){db.ref('settings/banner').on('value',snap=>{const d=snap.val();const mb=document.getElementById('moving-banner');const mt=document.getElementById('moving-banner-text');if(d&&d.text&&d.visible!==false){mb.classList.remove('hidden');mt.innerText='📢 '+d.text+' 📢';bannerLink=d.link||"";}else{mb.classList.add('hidden');}});}
+function handleBannerClick(){if(bannerLink&&bannerLink.startsWith('http'))window.open(bannerLink,'_blank');}
 function updateBanner(){const t=document.getElementById('admin-banner-text').value.trim(),l=document.getElementById('admin-banner-link').value.trim();if(!t)return showNotification("يرجى كتابة نص الإعلان","blue");db.ref('settings/banner').set({text:t,link:l||"",visible:true}).then(()=>{showNotification("تم تحديث البانر ✅","green");document.getElementById('admin-banner-text').value="";document.getElementById('admin-banner-link').value="";});}
 function toggleBanner(){db.ref('settings/banner/visible').once('value',snap=>{const c=snap.val();db.ref('settings/banner').update({visible:c===false?true:false});showNotification(c===false?'تم إظهار البانر ✅':'تم إخفاء البانر ✅','green');});}
 
-// ========== الضغطات السرية ==========
 let secretTapCount=0,secretTapTimer=null;
 function handleSecretTap(){secretTapCount++;const ind=document.getElementById('secret-indicator');ind.classList.remove('hidden');ind.innerText=`🔒 ${secretTapCount}/7`;clearTimeout(secretTapTimer);secretTapTimer=setTimeout(()=>{secretTapCount=0;ind.classList.add('hidden');},3000);if(secretTapCount===7){secretTapCount=0;ind.classList.add('hidden');const u=auth.currentUser;if(u&&ADMIN_EMAILS.includes(u.email)){const p=document.getElementById('admin-panel');p.classList.toggle('hidden');if(!p.classList.contains('hidden')){loadAdminPanel();showNotification('🔓 تم فتح لوحة التحكم السرية','purple');}else{showNotification('🔒 تم إغلاق لوحة التحكم','blue');}}else{showNotification('⛔ ليس لديك صلاحية الوصول','blue');}}}
 
-// ========== المستويات ==========
 const LEVELS={bronze:{min:0,commission:0.02,name:"برونزي",color:"level-bronze",next:50},silver:{min:50,commission:0.03,name:"فضي",color:"level-silver",next:200},gold:{min:200,commission:0.05,name:"ذهبي",color:"level-gold",next:500},diamond:{min:500,commission:0.07,name:"الماسي",color:"level-diamond",next:Infinity}};
 function getUserLevel(c){if(c>=500)return LEVELS.diamond;if(c>=200)return LEVELS.gold;if(c>=50)return LEVELS.silver;return LEVELS.bronze;}
 
@@ -526,131 +311,84 @@ let GLOBAL_REDIRECT_LINK="https://hp.funroom.store/a/8nw6emt2";
 db.ref('settings/redirectLink').on('value',snap=>{if(snap.val()){GLOBAL_REDIRECT_LINK=snap.val();const d=document.getElementById('current-link-display');if(d)d.innerText="الرابط النشط: "+GLOBAL_REDIRECT_LINK;}});
 function updateGlobalLink(){const l=document.getElementById('admin-new-link').value.trim();if(!l.startsWith('http'))return showNotification("يرجى إدخال رابط صحيح يبدأ بـ http","blue");db.ref('settings').update({redirectLink:l}).then(()=>{showNotification("تم تحديث رابط التحويل بنجاح ✅","green");document.getElementById('admin-new-link').value="";});}
 
-// ========== التحقق وإعادة التوجيه مع نظام تجميع IPs (النسخة الاحتياطية) ==========
-function checkAndRedirect() {
-    const p = new URLSearchParams(window.location.search);
-    const refId = p.get("ref");
-    if (!refId) return;
-
-    // 1. إذا كانت هذه أول زيارة، نأخذ بصمة ونحول مباشرة مع تسجيل الزيارة في الخلفية
-    if (!sessionStorage.getItem('redirecting')) {
-        sessionStorage.setItem('redirecting', 'true');
+function checkAndRedirect(){
+    const p=new URLSearchParams(window.location.search);
+    const refId=p.get("ref");
+    if(!refId)return;
+    if(!sessionStorage.getItem('redirecting')){
+        sessionStorage.setItem('redirecting','true');
         document.getElementById('loading-screen').classList.remove('hidden');
-
-        const fp = getDeviceFingerprint();
-        
-        // 2. نحاول نجيب الـIP
-        fetch('https://api.ipify.org?format=json')
-            .then(r => r.json())
-            .then(data => {
-                const ip = data.ip;
-                const uk = ip + '_' + fp;
-                
-                // 3. نحسب ونضيف مباشرة بدون انتظار ردود طويلة
-                db.ref('clicks_log/' + refId).once('value').then(snap => {
-                    const log = snap.val() || {};
-                    
-                    // إذا كان الجهاز مكرر نحول فوراً بدون احتساب
-                    if (Object.values(log).some(e => e === uk)) {
-                        window.location.replace(GLOBAL_REDIRECT_LINK);
-                        return;
-                    }
-                    
-                    // تجميع IPs الفريدة
-                    const currentUniqueIPs = new Set();
-                    Object.values(log).forEach(entry => {
-                        const ipPart = entry.split('_')[0];
-                        currentUniqueIPs.add(ipPart);
-                    });
-                    const currentUniqueCount = currentUniqueIPs.size;
-                    currentUniqueIPs.add(ip);
-                    const newUniqueCount = currentUniqueIPs.size;
-                    
-                    const currentGroups = Math.floor(currentUniqueCount / IP_GROUP_SIZE);
-                    const newGroups = Math.floor(newUniqueCount / IP_GROUP_SIZE);
-                    const shouldCountEarning = (newGroups > currentGroups);
-                    
-                    // تسجيل البصمة
-                    db.ref('clicks_log/' + refId).push(uk);
-                    
-                    // تحضير التحديثات
-                    db.ref('users/' + refId).once('value').then(us => {
-                        const ud = us.val() || {};
-                        const lv = getUserLevel(ud.clicks || 0);
-                        const com = lv.commission;
-                        const today = new Date().toISOString().split('T')[0];
-                        
-                        const updates = {};
-                        updates['users/' + refId + '/clicks'] = (ud.clicks || 0) + 1;
-                        updates['users/' + refId + '/todayClicks'] = (ud.todayClicks || 0) + 1;
-                        updates['daily_log/' + refId + '/' + today + '/clicks'] = firebase.database.ServerValue.increment(1);
-                        
-                        if (shouldCountEarning) {
-                            updates['users/' + refId + '/todayBalance'] = firebase.database.ServerValue.increment(com);
-                            updates['users/' + refId + '/totalBalance'] = firebase.database.ServerValue.increment(com);
-                            updates['daily_log/' + refId + '/' + today + '/earnings'] = firebase.database.ServerValue.increment(com);
-                            updates['daily_log/' + refId + '/' + today + '/clickRate'] = com;
-                            if (ud.referredBy) {
-                                const refCommission = Number((com * 0.1).toFixed(3));
-                                updates['users/' + ud.referredBy + '/refEarnings'] = firebase.database.ServerValue.increment(refCommission);
-                                updates['users/' + ud.referredBy + '/todayBalance'] = firebase.database.ServerValue.increment(refCommission);
-                                updates['users/' + ud.referredBy + '/totalBalance'] = firebase.database.ServerValue.increment(refCommission);
-                                updates['daily_log/' + ud.referredBy + '/' + today + '/refEarnings'] = firebase.database.ServerValue.increment(refCommission);
-                            }
+        const fp=getDeviceFingerprint();
+        fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(data=>{
+            const ip=data.ip;
+            const uk=ip+'_'+fp;
+            db.ref('clicks_log/'+refId).once('value').then(snap=>{
+                const log=snap.val()||{};
+                if(Object.values(log).some(e=>e===uk)){window.location.replace(GLOBAL_REDIRECT_LINK);return;}
+                const currentUniqueIPs=new Set();
+                Object.values(log).forEach(entry=>{const ipPart=entry.split('_')[0];currentUniqueIPs.add(ipPart);});
+                const currentUniqueCount=currentUniqueIPs.size;
+                currentUniqueIPs.add(ip);
+                const newUniqueCount=currentUniqueIPs.size;
+                const currentGroups=Math.floor(currentUniqueCount/IP_GROUP_SIZE);
+                const newGroups=Math.floor(newUniqueCount/IP_GROUP_SIZE);
+                const shouldCountEarning=(newGroups>currentGroups);
+                db.ref('clicks_log/'+refId).push(uk);
+                db.ref('users/'+refId).once('value').then(us=>{
+                    const ud=us.val()||{};
+                    const lv=getUserLevel(ud.clicks||0);
+                    const com=lv.commission;
+                    const today=new Date().toISOString().split('T')[0];
+                    const updates={};
+                    updates['users/'+refId+'/clicks']=(ud.clicks||0)+1;
+                    updates['users/'+refId+'/todayClicks']=(ud.todayClicks||0)+1;
+                    updates['daily_log/'+refId+'/'+today+'/clicks']=firebase.database.ServerValue.increment(1);
+                    if(shouldCountEarning){
+                        updates['users/'+refId+'/todayBalance']=firebase.database.ServerValue.increment(com);
+                        updates['users/'+refId+'/totalBalance']=firebase.database.ServerValue.increment(com);
+                        updates['daily_log/'+refId+'/'+today+'/earnings']=firebase.database.ServerValue.increment(com);
+                        updates['daily_log/'+refId+'/'+today+'/clickRate']=com;
+                        if(ud.referredBy){
+                            const refCommission=Number((com*0.1).toFixed(3));
+                            updates['users/'+ud.referredBy+'/refEarnings']=firebase.database.ServerValue.increment(refCommission);
+                            updates['users/'+ud.referredBy+'/todayBalance']=firebase.database.ServerValue.increment(refCommission);
+                            updates['users/'+ud.referredBy+'/totalBalance']=firebase.database.ServerValue.increment(refCommission);
+                            updates['daily_log/'+ud.referredBy+'/'+today+'/refEarnings']=firebase.database.ServerValue.increment(refCommission);
                         }
-                        
-                        // نرسل التحديثات ونتحول فوراً
-                        db.ref().update(updates);
-                        window.location.replace(GLOBAL_REDIRECT_LINK);
-                    }).catch(() => {
-                        window.location.replace(GLOBAL_REDIRECT_LINK);
-                    });
-                }).catch(() => {
+                    }
+                    db.ref().update(updates);
                     window.location.replace(GLOBAL_REDIRECT_LINK);
-                });
-            })
-            .catch(() => {
-                // إذا فشل الـ IP، نستخدم بصمة فقط مع رابط احتياطي ونحول
-                const uk = 'nofetch_' + fp;
-                db.ref('clicks_log/' + refId).push(uk);
-                window.location.replace(GLOBAL_REDIRECT_LINK);
-            });
-    } else {
-        // إذا كان زائر مكرر (نفس session)
+                }).catch(()=>{window.location.replace(GLOBAL_REDIRECT_LINK);});
+            }).catch(()=>{window.location.replace(GLOBAL_REDIRECT_LINK);});
+        }).catch(()=>{const uk='nofetch_'+fp;db.ref('clicks_log/'+refId).push(uk);window.location.replace(GLOBAL_REDIRECT_LINK);});
+    }else{
         window.location.replace(GLOBAL_REDIRECT_LINK);
     }
 }
 
-// ========== تصفير الأرباح اليومية ==========
-function checkDailyReset(uid) {
-    const now = new Date();
-    let resetTime = new Date();
-    resetTime.setHours(3, 0, 0, 0);
-    if (now.getHours() < 3) resetTime.setDate(resetTime.getDate() - 1);
-    
-    const currentResetDay = resetTime.toDateString();
-    
-    db.ref('users/' + uid).once('value').then(snapshot => {
-        const freshData = snapshot.val();
-        if (!freshData) return;
-        
-        const lastResetDay = freshData.lastResetDay || "";
-        
-        if (lastResetDay !== currentResetDay) {
-            const todayAmount = freshData.todayBalance || 0;
-            
-            db.ref('users/' + uid).update({
-                todayBalance: 0,
-                todayClicks: 0,
-                withdrawableBalance: Number(((freshData.withdrawableBalance || 0) + todayAmount).toFixed(2)),
-                lastResetDay: currentResetDay
+function checkDailyReset(uid){
+    const now=new Date();
+    let resetTime=new Date();
+    resetTime.setHours(3,0,0,0);
+    if(now.getHours()<3)resetTime.setDate(resetTime.getDate()-1);
+    const currentResetDay=resetTime.toDateString();
+    db.ref('users/'+uid).once('value').then(snapshot=>{
+        const freshData=snapshot.val();
+        if(!freshData)return;
+        const lastResetDay=freshData.lastResetDay||"";
+        if(lastResetDay!==currentResetDay){
+            const todayAmount=freshData.todayBalance||0;
+            db.ref('users/'+uid).update({
+                todayBalance:0,
+                todayClicks:0,
+                withdrawableBalance:Number(((freshData.withdrawableBalance||0)+todayAmount).toFixed(2)),
+                lastResetDay:currentResetDay
             });
         }
     });
 }
 
 function claimDailyBonus(){const u=auth.currentUser;if(!u)return;const today=new Date().toDateString();db.ref('users/'+u.uid+'/lastBonusDay').once('value',snap=>{if(snap.val()===today)return showNotification("لقد حصلت على مكافأتك اليومية مسبقاً ⏰","blue");const bonus=Math.floor(Math.random()*10)+1;db.ref('users/'+u.uid).update({lastBonusDay:today,todayBalance:firebase.database.ServerValue.increment(bonus/100),totalBalance:firebase.database.ServerValue.increment(bonus/100)}).then(()=>{document.getElementById('bonus-btn').classList.add('hidden');showNotification(`🎁 مبروك! ربحت ${bonus} سنت مكافأة يومية`,"green");});});}
-
 function showThemes(){const t=['#050b1a','#1a0505','#051a05','#1a051a'],c=document.body.style.background||'#050b1a',n=t[(t.indexOf(c)+1)%t.length];document.body.style.background=n;localStorage.setItem('theme',n);showNotification('تم تغيير الثيم ✅','purple');}
 const savedTheme=localStorage.getItem('theme');if(savedTheme)document.body.style.background=savedTheme;
 
@@ -663,46 +401,9 @@ auth.onAuthStateChanged(u=>{if(u){document.getElementById('auth-section').classL
 
 function renderHistory(uid){db.ref('withdrawals').on('value',snap=>{const list=document.getElementById('user-withdraw-history'),data=snap.val();list.innerHTML="";if(!data)return;const withdrawals=Object.keys(data).reverse().map(k=>({id:k,...data[k]})).filter(w=>w.uid===uid);if(withdrawals.length===0){list.innerHTML='<p class="text-[10px] text-slate-500 text-center">لا يوجد سحوبات بعد</p>';return;}withdrawals.slice(0,5).forEach(w=>{const paid=w.status==="paid";list.innerHTML+=`<div class="glass-card p-4 rounded-2xl flex justify-between items-center border border-white/5"><div class="text-right"><p class="text-lg text-white font-black">$${w.amount}</p><p class="text-[9px] text-slate-500 font-bold italic lowercase">${w.method} | ${w.contact||'-'}</p></div><div class="text-[10px] font-black ${paid?'text-emerald-400':'text-amber-400'}">${paid?'تم الدفع ✅':'قيد المراجعة'}</div></div>`;});});}
 
-function confirmWithdraw(){
-    const amt=parseFloat(document.getElementById('w-amount').value);
-    const acc=document.getElementById('w-account').value.trim();
-    const con=document.getElementById('w-contact').value.trim();
-    const met=selectedPaymentMethod;
-    const contactMethod = selectedContactMethod;
-    const fullContact = contactMethod + ': ' + con;
-    
-    if(!amt||amt<7)return showNotification("الحد الأدنى للسحب 7$","blue");
-    if(!acc)return showNotification("يرجى إدخال رقم الحساب أو المحفظة","blue");
-    if(!con)return showNotification("يرجى إدخال معلومات التواصل","blue");
-    
-    const uRef=db.ref('users/'+auth.currentUser.uid);
-    uRef.once('value',snap=>{
-        const bal=snap.val().withdrawableBalance||0;
-        if(amt>bal)return showNotification("رصيدك غير كافٍ","blue");
-        
-        uRef.update({withdrawableBalance:Number((bal-amt).toFixed(2))});
-        db.ref('withdrawals').push({
-            uid:auth.currentUser.uid,
-            username:snap.val().username,
-            amount:amt,
-            method:met,
-            account:acc,
-            contact:fullContact,
-            status:"pending",
-            timestamp:Date.now()
-        }).then(()=>{
-            document.getElementById('withdraw-modal').classList.remove('hidden');
-            document.getElementById('w-amount').value="";
-            document.getElementById('w-account').value="";
-            document.getElementById('w-contact').value="";
-            updateWithdrawPage();
-            loadWithdrawHistory();
-        });
-    });
-}
+function confirmWithdraw(){const amt=parseFloat(document.getElementById('w-amount').value);const acc=document.getElementById('w-account').value.trim();const con=document.getElementById('w-contact').value.trim();const met=selectedPaymentMethod;const contactMethod=selectedContactMethod;const fullContact=contactMethod+': '+con;if(!amt||amt<7)return showNotification("الحد الأدنى للسحب 7$","blue");if(!acc)return showNotification("يرجى إدخال رقم الحساب أو المحفظة","blue");if(!con)return showNotification("يرجى إدخال معلومات التواصل","blue");const uRef=db.ref('users/'+auth.currentUser.uid);uRef.once('value',snap=>{const bal=snap.val().withdrawableBalance||0;if(amt>bal)return showNotification("رصيدك غير كافٍ","blue");uRef.update({withdrawableBalance:Number((bal-amt).toFixed(2))});db.ref('withdrawals').push({uid:auth.currentUser.uid,username:snap.val().username,amount:amt,method:met,account:acc,contact:fullContact,status:"pending",timestamp:Date.now()}).then(()=>{document.getElementById('withdraw-modal').classList.remove('hidden');document.getElementById('w-amount').value="";document.getElementById('w-account').value="";document.getElementById('w-contact').value="";updateWithdrawPage();loadWithdrawHistory();});});}
 
 function loadAdminPanel(){db.ref('users').on('value',snap=>{const users=snap.val()||{};let tc=0,au=0,te={name:'-',total:0},pc=0;Object.values(users).forEach(u=>{tc+=u.clicks||0;if(u.clicks>0)au++;if((u.totalBalance||0)>te.total){te={name:u.username,total:u.totalBalance};}});document.getElementById('admin-total-clicks').innerText=tc;document.getElementById('admin-active-users').innerText=au;document.getElementById('admin-top-earner').innerText=te.name+' ($'+te.total.toFixed(2)+')';db.ref('withdrawals').on('value',ws=>{const wd=ws.val()||{};pc=Object.values(wd).filter(w=>w.status==='pending').length;document.getElementById('admin-pending-count').innerText=pc;});});db.ref('withdrawals').on('value',snap=>{const cont=document.getElementById('admin-withdrawals');cont.innerHTML="";const data=snap.val();if(!data)return;Object.keys(data).reverse().forEach(key=>{const w=data[key];if(w.status==="paid")return;cont.innerHTML+=`<div class="glass-card p-4 rounded-2xl flex justify-between items-center border-r-4 border-amber-500"><div class="text-right"><h4 class="font-black text-white">${w.username}</h4><p class="text-xs text-amber-400 font-bold">$${w.amount}</p><p class="text-[10px] text-slate-500 uppercase">${w.method} - ${w.account} | ${w.contact||'-'}</p></div><button onclick="markAsPaid('${key}')" class="bg-emerald-500 text-white px-4 py-2 rounded-xl text-[10px] font-black shadow-lg">إتمام</button></div>`;});});}
-
 function markAsPaid(id){db.ref('withdrawals/'+id).update({status:"paid"});}
 function copyShortLink(){const t=document.getElementById("short-link");t.select();document.execCommand("copy");showNotification("تم نسخ الرابط التسويقي ✅","blue");}
 function copyReferralLink(){const t=document.getElementById("ref-link");t.select();document.execCommand("copy");showNotification("تم نسخ رابط الإحالة ✅","purple");}
